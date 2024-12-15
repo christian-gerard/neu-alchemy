@@ -1,5 +1,6 @@
 # Bank Account App
 # Create, Delete Users
+import Account
 
 IO.puts "<<ELIXIR BANK>>\n"
 
