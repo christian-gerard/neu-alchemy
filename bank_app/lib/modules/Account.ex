@@ -1,7 +1,14 @@
+
+
 defmodule Account do
 
+  defstruct name: nil, balance: 0, transactions: []
+
   def account_menu do
+
     IO.puts "<<ELIXIR BANK: ACCOUNT>>"
+    IO.puts ""
+
   end
 
   def test_account do
