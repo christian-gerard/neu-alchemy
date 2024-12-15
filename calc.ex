@@ -4,12 +4,11 @@ defmodule Calculator do
     x = get_first_number()
     op = get_operation()
     y = get_second_number()
+    IO.puts "The result of #{x} #{op} #{y} is..."
     IO.puts "RESULT: #{calculate_result(x,y,op)}"
     restart = IO.gets "Again? (Y/n):"
     validate_again(restart)
-
-
-  end
+end
 
   def get_first_number do
     IO.gets("Enter First Number: ")
@@ -59,22 +58,18 @@ defmodule Calculator do
     end
   end
 
-  defp validate_again(restart) doc
+  defp validate_again(restart) do
     res = String.trim(restart)
     case res do
       "Y" -> Calculator.run_calculator()
       "n" -> IO.puts "Thanks & Goodbye"
       _ ->
         IO.puts "Please enter 'Y' or 'n'"
-        restart = IO.gets "Again? (Y/n): "
-        Calculator.validate_again(restart)
+        new = IO.gets "Again? (Y/n): "
+        validate_again(new)
     end
   end
 end
-
-
-
-
 
 
 IO.puts "<<ELIXIR CALC>>"
