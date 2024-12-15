@@ -2,10 +2,12 @@ defmodule Calculator do
 
   def run_calculator do
     x = get_first_number()
-    get_operation()
+    op = get_operation()
     y = get_second_number()
+    IO.puts "RESULT: #{calculate_result(x,y,op)}"
+    restart = IO.gets "Again? (Y/n):"
+    validate_again(restart)
 
-    IO.puts "1: #{x} 2:#{y}"
 
   end
 
@@ -28,8 +30,6 @@ defmodule Calculator do
   end
 
   defp parse_operation(input) do
-
-
     case input do
       "+" -> "+"
       "-" -> "-"
@@ -47,6 +47,27 @@ defmodule Calculator do
       :error ->
         IO.puts("Invalid number... Try again.")
         get_first_number()
+    end
+  end
+
+  defp calculate_result(x,y,op) do
+    case op do
+      "+" -> x + y
+      "-" -> x - y
+      "*" -> x * y
+      "/" -> x / y
+    end
+  end
+
+  defp validate_again(restart) doc
+    res = String.trim(restart)
+    case res do
+      "Y" -> Calculator.run_calculator()
+      "n" -> IO.puts "Thanks & Goodbye"
+      _ ->
+        IO.puts "Please enter 'Y' or 'n'"
+        restart = IO.gets "Again? (Y/n): "
+        Calculator.validate_again(restart)
     end
   end
 end
