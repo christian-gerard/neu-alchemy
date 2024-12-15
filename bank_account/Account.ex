@@ -7,5 +7,4 @@ defmodule Account do
     IO.puts "#{password}"
   end
 
-
 end
