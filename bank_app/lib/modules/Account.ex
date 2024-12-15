@@ -7,4 +7,9 @@ defmodule Account do
   def test_account do
     IO.puts "Account Module Imported"
   end
+
+  def view_accounts do
+    IO.puts "<<Account List>>"
+  end
+
 end

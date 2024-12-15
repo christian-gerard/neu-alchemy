@@ -1,4 +1,6 @@
 import Account
+import User
+import Transaction
 
 defmodule BankApp do
   @moduledoc """
@@ -29,6 +31,8 @@ defmodule BankApp do
     input = menu_input |> String.trim()
     case input do
       "1" -> account_menu()
+      "2" -> user_menu()
+      "3" -> transaction_menu()
       _ ->
         IO.puts "Invalid Input...Try Again"
         input = IO.gets "Enter Here: "
